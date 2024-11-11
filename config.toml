@@ -1,0 +1,23 @@
+theme = "theme-cv"
+
+disableKinds = ["taxonomy"]
+
+[params]
+  name = "Laurent Thuaudet"
+  description = "Lead Tech / Développeur Senior PHP"
+
+[[params.experience]]
+  title = "Développeur Web"
+  company = "Entreprise XYZ"
+  date = "Jan 2020 - Présent"
+  description = "Développement de fonctionnalités ..."
+
+[[params.education]]
+  degree = "Licence en Informatique"
+  school = "Université ABC"
+  date = "Sept 2015 - Juin 2018"
+  description = "Formation en programmation ..."
+
+[[params.skills]]
+  name = "JavaScript"
+  level = "Avancé"

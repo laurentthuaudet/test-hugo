@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ .Site.Title }}</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <main>
+    <section id="about">
+      <h1>{{ .Site.Params.name }}</h1>
+      <p>{{ .Site.Params.description }}</p>
+    </section>
+    <section id="experience">
+      <h2>Expérience</h2>
+      {{ range .Site.Params.experience }}
+        <div class="experience-item">
+          <h3>{{ .title }}</h3>
+          <p>{{ .company }} | {{ .date }}</p>
+          <p>{{ .description }}</p>
+        </div>
+      {{ end }}
+    </section>
+    <section id="education">
+      <h2>Formation</h2>
+      {{ range .Site.Params.education }}
+        <div class="education-item">
+          <h3>{{ .degree }}</h3>
+          <p>{{ .school }} | {{ .date }}</p>
+          <p>{{ .description }}</p>
+        </div>
+      {{ end }}
+    </section>
+    <section id="skills">
+      <h2>Compétences</h2>
+      <ul>
+        {{ range .Site.Params.skills }}
+          <li>{{ .name }} - {{ .level }}</li>
+        {{ end }}
+      </ul>
+    </section>
+  </main>
+  {{ partial "footer.html" . }}
+</body>
+</html>
