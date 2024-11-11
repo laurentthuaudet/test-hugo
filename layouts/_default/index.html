@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ .Site.Title }}</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="bg-gray-900 text-yellow-400 flex flex-col min-h-screen">
+  {{ partial "header.html" . }}
+  <main class="w-full max-w-md mx-auto flex-grow p-4 space-y-4">
+    <!-- Accordéon pour chaque section -->
+    <section class="border-b border-yellow-400">
+      <button class="flex items-center w-full py-4 text-lg font-medium hover:text-yellow-300 transition"
+        onclick="toggleAccordion(this)">
+        <span class="mr-2">👤</span> About Me
+      </button>
+      <div class="accordion-content overflow-hidden transition-all duration-500 max-h-0">
+        <p class="p-4 text-gray-200">{{ .Site.Params.description }}</p>
+      </div>
+    </section>
+
+    <section class="border-b border-yellow-400">
+      <button class="flex items-center w-full py-4 text-lg font-medium hover:text-yellow-300 transition"
+        onclick="toggleAccordion(this)">
+        <span class="mr-2">💼</span> Experiences
+      </button>
+      <div class="accordion-content overflow-hidden transition-all duration-500 max-h-0">
+        {{ range .Site.Params.experience }}
+        <div class="experience-item">
+          <h3>{{ .title }}</h3>
+          <p>{{ .company }} | {{ .date }}</p>
+          <p>{{ .description }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="border-b border-yellow-400">
+      <button class="flex items-center w-full py-4 text-lg font-medium hover:text-yellow-300 transition"
+        onclick="toggleAccordion(this)">
+        <span class="mr-2">🎓</span> Formation
+      </button>
+      <div class="accordion-content overflow-hidden transition-all duration-500 max-h-0">
+        {{ range .Site.Params.education }}
+        <div class="education-item">
+          <h3 class="p-4 text-gray-200">{{ .degree }}</h3>
+          <p class="p-4 text-gray-200">{{ .school }} | {{ .date }}</p>
+          <p class="p-4 text-gray-200">{{ .description }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="border-b border-yellow-400">
+      <button class="flex items-center w-full py-4 text-lg font-medium hover:text-yellow-300 transition"
+        onclick="toggleAccordion(this)">
+        <span class="mr-2">🎓</span> Compétences
+      </button>
+      <div class="accordion-content overflow-hidden transition-all duration-500 max-h-0">
+        <ul class="p-4 text-gray-200">
+          {{ range .Site.Params.skills }}
+          <li>{{ .name }} - {{ .level }}</li>
+          {{ end }}
+        </ul>
+      </div>
+    </section>
+  </main>
+  {{ partial "footer.html" . }}
+  <script src="/js/accordion.js"></script>
+</body>
+
+</html>

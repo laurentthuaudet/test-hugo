@@ -1,5 +1,3 @@
-theme = "theme-cv"
-
 disableKinds = ["taxonomy"]
 
 [params]
